@@ -28,7 +28,7 @@ float hitungBMI(float berat, float tinggi) {
 
 // Fungsi untuk menentukan kondisi/status berat badan
 string cekStatus(float bmi) {
-    if (bmi < 18.5) {
+    if (bmi < 10.5) {
         return "Berat Badan Kurang";
     } else if (bmi < 25) {
         return "Berat Badan Normal";
