@@ -4,19 +4,14 @@
  */
 #include <iostream>
 #include <string>
+#include <ctime> // <-- 1. TARO DI SINI (Area Library)
 
 using namespace std;
 
 // Prosedur untuk memasukkan data nama, kelas, berat, dan tinggi
 void masukanData(string &nama, string &kelas, float &berat, float &tinggi) {
     cout << "--- Selamat Datang Mahasiswa Kelas A 2025 ---" << endl;
-    // Di dalam prosedur masukanData, tambahkan:
-if (tinggi <= 0) {
-    cout << "Peringatan: Tinggi badan harus lebih dari 0!" << endl;
-    tinggi = 1; // Nilai default agar program tidak crash
-}
     
-    // Menggunakan getline agar bisa menginput nama lengkap dengan spasi
     cout << "Masukkan Nama Lengkap      : ";
     getline(cin >> ws, nama); 
     
@@ -37,7 +32,7 @@ float hitungBMI(float berat, float tinggi) {
 
 // Fungsi untuk menentukan kondisi/status berat badan
 string cekStatus(float bmi) {
-    if (bmi < 10.5) {
+    if (bmi < 18.5) {
         return "Berat Badan Kurang";
     } else if (bmi < 25) {
         return "Berat Badan Normal";
@@ -58,8 +53,14 @@ int main() {
     // Memanggil fungsi hitung
     bmi = hitungBMI(berat, tinggi);
 
+    // --- 2. TARO DI SINI (Sebelum Output) ---
+    time_t now = time(0);
+    char* dt = ctime(&now);
+    // ----------------------------------------
+
     // Menampilkan output sesuai format yang rapi
     cout << "\n--- Hasil Analisis Mahasiswa ---" << endl;
+    cout << "Waktu Pemeriksaan: " << dt; // <-- 3. TAMPILKAN DI SINI
     cout << "Nama     : " << nama << endl;
     cout << "Kelas    : " << kelas << endl;
     cout << "BMI Anda : " << bmi << endl;
@@ -68,3 +69,4 @@ int main() {
 
     return 0;
 }
+
