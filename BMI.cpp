@@ -29,9 +29,9 @@ float hitungBMI(float berat, float tinggi) {
 
 // Fungsi untuk menentukan kondisi/status berat badan
 string cekStatus(float bmi) {
-    if (bmi < 18.5) return "Berat Badan Kurang";
-    else if (bmi < 25) return "Berat Badan Normal";
-    else if (bmi < 30) return "Berat Badan Kelebihan";
+    if (bmi < 5) return "Berat Badan Kurang";
+    else if (bmi < 10) return "Berat Badan Normal";
+    else if (bmi < 20) return "Berat Badan Kelebihan";
     else return "Obesitas";
 }
 
@@ -48,7 +48,7 @@ int main() {
     string nama, kelas;
     float berat, tinggi, bmi;
 
-    cout << "--- Selamat Datang Mahasiswa Kelas A 2025 ---" << endl;
+    cout << "--- Selamat Datang Mahasiswa Kelas D 2026 ---" << endl;
 
     do {
         // Memanggil prosedur input
