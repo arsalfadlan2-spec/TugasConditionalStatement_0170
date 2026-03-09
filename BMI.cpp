@@ -1,3 +1,7 @@
+/* * Proyek: Kalkulator BMI Mahasiswa TI UMY
+ * Pembuat: Arsal Fadlan
+ * Deskripsi: Program C++ menggunakan Prosedur dan Fungsi
+ */
 #include <iostream>
 #include <string>
 
