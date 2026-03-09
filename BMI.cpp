@@ -2,9 +2,9 @@
  * Pembuat: Arsal Fadlan
  * Deskripsi: Program C++ menggunakan Prosedur dan Fungsi
  */
-#include <iostream>
+ #include <iostream>
 #include <string>
-#include <ctime> // <-- 1. TARO DI SINI (Area Library)
+#include <ctime>
 
 using namespace std;
 
@@ -27,6 +27,8 @@ void masukanData(string &nama, string &kelas, float &berat, float &tinggi) {
 
 // Fungsi untuk menghitung nilai BMI
 float hitungBMI(float berat, float tinggi) {
+    // Validasi agar tidak terjadi error pembagian dengan nol
+    if (tinggi <= 0) return 0; 
     return berat / (tinggi * tinggi);
 }
 
@@ -43,6 +45,19 @@ string cekStatus(float bmi) {
     }
 }
 
+// Fungsi untuk memberikan saran kesehatan
+string berikanSaran(string status) {
+    if (status == "Berat Badan Kurang") {
+        return "Saran: Tingkatkan asupan protein dan kalori.";
+    } else if (status == "Berat Badan Normal") {
+        return "Saran: Pertahankan pola makan dan olahraga teratur.";
+    } else if (status == "Berat Badan Kelebihan") {
+        return "Saran: Kurangi konsumsi gula dan rutin berolahraga.";
+    } else {
+        return "Saran: Segera konsultasikan pola makan dengan ahli gizi.";
+    }
+}
+
 int main() {
     string nama, kelas;
     float berat, tinggi, bmi;
@@ -53,19 +68,24 @@ int main() {
     // Memanggil fungsi hitung
     bmi = hitungBMI(berat, tinggi);
 
-    // --- 2. TARO DI SINI (Sebelum Output) ---
+    // Mengambil waktu saat ini
     time_t now = time(0);
     char* dt = ctime(&now);
-    // ----------------------------------------
 
-    // Menampilkan output sesuai format yang rapi
-    cout << "\n--- Hasil Analisis Mahasiswa ---" << endl;
-    cout << "Waktu Pemeriksaan: " << dt; // <-- 3. TAMPILKAN DI SINI
-    cout << "Nama     : " << nama << endl;
-    cout << "Kelas    : " << kelas << endl;
-    cout << "BMI Anda : " << bmi << endl;
-    cout << "Status   : " << cekStatus(bmi) << endl;
-    cout << "--------------------------------" << endl;
+    // Menampilkan output hasil akhir
+    cout << "\n========================================" << endl;
+    cout << "       HASIL ANALISIS MAHASISWA         " << endl;
+    cout << "========================================" << endl;
+    cout << "Waktu Pemeriksaan : " << dt; 
+    cout << "Nama              : " << nama << endl;
+    cout << "Kelas             : " << kelas << endl;
+    cout << "BMI Anda          : " << bmi << endl;
+    cout << "Status            : " << cekStatus(bmi) << endl;
+    
+    // Memanggil fungsi saran berdasarkan status
+    cout << berikanSaran(cekStatus(bmi)) << endl;
+    
+    cout << "========================================" << endl;
 
     return 0;
 }
