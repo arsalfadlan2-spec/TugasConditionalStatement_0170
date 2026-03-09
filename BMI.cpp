@@ -10,6 +10,11 @@ using namespace std;
 // Prosedur untuk memasukkan data nama, kelas, berat, dan tinggi
 void masukanData(string &nama, string &kelas, float &berat, float &tinggi) {
     cout << "--- Selamat Datang Mahasiswa Kelas A 2025 ---" << endl;
+    // Di dalam prosedur masukanData, tambahkan:
+if (tinggi <= 0) {
+    cout << "Peringatan: Tinggi badan harus lebih dari 0!" << endl;
+    tinggi = 1; // Nilai default agar program tidak crash
+}
     
     // Menggunakan getline agar bisa menginput nama lengkap dengan spasi
     cout << "Masukkan Nama Lengkap      : ";
